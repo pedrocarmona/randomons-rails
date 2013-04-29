@@ -5,10 +5,19 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'devise'
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre' 
+
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg', '0.12.2'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
