@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429021307) do
+ActiveRecord::Schema.define(:version => 20130516233108) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,71 @@ ActiveRecord::Schema.define(:version => 20130429021307) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "creatures", :force => true do |t|
+    t.integer  "specie_id",                           :null => false
+    t.string   "name",                                :null => false
+    t.float    "hitpoints",                           :null => false
+    t.float    "attack",                              :null => false
+    t.float    "defense",                             :null => false
+    t.float    "speed",                               :null => false
+    t.float    "growth",             :default => 0.0, :null => false
+    t.integer  "level",              :default => 1,   :null => false
+    t.float    "current_hitpoints",                   :null => false
+    t.float    "current_experience", :default => 0.0, :null => false
+    t.integer  "status",             :default => 0,   :null => false
+    t.float    "preference",         :default => 0.0, :null => false
+    t.integer  "user_id"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  create_table "moves", :force => true do |t|
+    t.string   "name",                                  :null => false
+    t.text     "move_types",                            :null => false
+    t.float    "attack",                                :null => false
+    t.float    "accuracy",           :default => 100.0, :null => false
+    t.integer  "status"
+    t.float    "status_probability", :default => 0.0,   :null => false
+    t.text     "description"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  create_table "populations", :force => true do |t|
+    t.integer  "specie_id",  :null => false
+    t.float    "latitude",   :null => false
+    t.float    "longitude",  :null => false
+    t.float    "radius",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "specie_moves", :force => true do |t|
+    t.integer  "specie_id",                 :null => false
+    t.integer  "move_id",                   :null => false
+    t.integer  "level",      :default => 1, :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "specie_moves", ["move_id"], :name => "index_specie_moves_on_move_id"
+  add_index "specie_moves", ["specie_id"], :name => "index_specie_moves_on_specie_id"
+
+  create_table "species", :force => true do |t|
+    t.string   "name",                               :null => false
+    t.float    "base_hitpoints",                     :null => false
+    t.float    "base_attack",                        :null => false
+    t.float    "base_defense",                       :null => false
+    t.float    "base_speed",                         :null => false
+    t.text     "specie_types",                       :null => false
+    t.integer  "experience_function", :default => 0, :null => false
+    t.text     "description"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "species", ["name"], :name => "index_species_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
