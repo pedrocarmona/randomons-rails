@@ -7,8 +7,8 @@ gem 'rails', '3.2.12'
 
 gem 'devise'
 gem 'activeadmin'
-gem 'meta_search', '>= 1.1.0.pre' 
-
+gem 'meta_search', '>= 1.1.0.pre'
+gem 'thin', '~> 1.5.0'
 
 group :development, :test do
   gem 'sqlite3'
