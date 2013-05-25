@@ -13,6 +13,8 @@ Randomons::Application.routes.draw do
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
       get 'tasks' => 'tasks#index', :as => 'tasks'
+
+      resources :species, :populations, :moves, :only => [:show, :index]
     end
   end
 end
