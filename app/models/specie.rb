@@ -12,4 +12,12 @@ class Specie < ActiveRecord::Base
     }
 
   serialize :specie_types, Array
+
+  def specie_types=(values)
+    write_attribute(:specie_types, values.delete_if { |v| v == '' }.map(&:to_i))
+  end
+
+  def specie_types_names
+    specie_types.map { |type| Type.name(type) }.join(', ')
+  end
 end

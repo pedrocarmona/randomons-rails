@@ -17,4 +17,16 @@ class Move < ActiveRecord::Base
     }
 
   serialize :move_types, Array
+
+  def move_types=(values)
+    write_attribute(:move_types, values.delete_if { |v| v == '' }.map(&:to_i))
+  end
+
+  def move_types_names
+    move_types.map { |type| Type.name(type) }.join(', ')
+  end
+
+  def status_name
+    Status.name(status)
+  end
 end
