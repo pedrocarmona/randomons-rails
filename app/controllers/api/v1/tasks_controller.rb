@@ -1,9 +1,4 @@
-class Api::V1::TasksController < ApplicationController
-  skip_before_filter :verify_authenticity_token,
-    :if => Proc.new { |c| c.request.format.json? }
-
-  respond_to :json
-
+class Api::V1::TasksController < Api::BaseController
   def index
     render :text => '{
       "success":true,
