@@ -9,6 +9,7 @@ gem 'devise', '~> 2.2.4'
 gem 'activeadmin', '~> 0.6.0'
 gem 'meta_search', '~> 1.1.3'
 gem 'thin', '~> 1.5.0'
+gem 'geocoder', '~> 1.1.8'
 
 group :development, :test do
   gem 'sqlite3'

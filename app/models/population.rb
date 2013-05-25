@@ -3,4 +3,6 @@ class Population < ActiveRecord::Base
 
   validates :specie_id, :latitude, :longitude, :radius,
     :presence => true
+
+  reverse_geocoded_by :latitude, :longitude
 end
