@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '~> 3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'devise'
-gem 'activeadmin'
-gem 'meta_search', '>= 1.1.0.pre'
+gem 'devise', '~> 2.2.4'
+gem 'activeadmin', '~> 0.6.0'
+gem 'meta_search', '~> 1.1.3'
 gem 'thin', '~> 1.5.0'
 
 group :development, :test do
