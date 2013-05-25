@@ -14,6 +14,11 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :development do
+  gem 'better_errors', '~> 0.9.0'
+  gem 'binding_of_caller', '~> 0.7.1'
+end
+
 group :production do
   gem 'pg', '0.12.2'
 end
