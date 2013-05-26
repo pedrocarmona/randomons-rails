@@ -1,6 +1,6 @@
 ActiveAdmin.register Population do
   index do
-    column :specie_id
+    column :specie
     column :latitude
     column :longitude
     column :radius
