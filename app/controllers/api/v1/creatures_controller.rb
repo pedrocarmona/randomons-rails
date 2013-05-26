@@ -1,10 +1,12 @@
 class Api::V1::CreaturesController < Api::BaseController
   def index
     @creatures = current_user.creatures.order('name ASC')
+    respond_with(@creature)
   end
 
   def show
     @creature = current_user.creatures.find(params[:id])
+    respond_with(@creature)
   end
 
   def create
@@ -15,7 +17,7 @@ class Api::V1::CreaturesController < Api::BaseController
   def update
     @creature = current_user.creatures.find(params[:id])
     @creature.update_attributes(params[:creature])
-    respond_with(@creature, :location => api_v1_creature_path(@creature))
+    respond_with(@creature)
   end
 
   def destroy

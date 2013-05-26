@@ -2,10 +2,10 @@
 # Thanks to https://groups.google.com/forum/#!msg/formtastic/OY734CMWpfw/EgUO3avIMCsJ
 class SerializedArrayInput < Formtastic::Inputs::CheckBoxesInput
   def make_selected_values
-    if object.new_record?
-      [0]
-    else
+    if object.respond_to?(method)
       object.send(method)
+    else
+      []
     end
   end
 end

@@ -27,6 +27,7 @@ ActiveAdmin.register Specie do
         g.inputs 'Species Moves' do
           g.input :move_id, :as => :select, :collection => Move.all, :include_blank => false
           g.input :level
+          g.input :_destroy, :as => :boolean, :required => false, :label => "Remove"
         end
       end
     end
@@ -43,6 +44,39 @@ ActiveAdmin.register Specie do
       row :base_speed
       row :experience_function
       row :description
+    end
+    div :class => "panel" do
+      h3 "Moves"
+      if specie.specie_moves
+        div :class => "panel_contents" do
+          div :class => "attributes_table" do
+            table do
+              tr do
+                th do
+                  "Name"
+                end
+                th do
+                  "Level"
+                end
+              end
+              tbody do
+                specie.specie_moves.each do |specie_move|
+                  tr do
+                    td do
+                      specie_move.name
+                    end
+                    td do
+                      specie_move.level
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      else
+        h3 "This specie has no moves."
+      end
     end
     active_admin_comments
   end
