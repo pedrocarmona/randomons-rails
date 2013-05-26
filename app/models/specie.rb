@@ -5,7 +5,7 @@ class Specie < ActiveRecord::Base
   has_many :moves, :through => :specie_moves
 
   attr_accessible :name, :base_hitpoints, :base_attack, :base_defense, :base_speed,
-    :specie_types, :experience_function, :description
+    :specie_types, :experience_function, :description, :specie_moves_attributes
 
   accepts_nested_attributes_for :specie_moves,
     :allow_destroy => true,

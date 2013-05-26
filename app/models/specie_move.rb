@@ -12,4 +12,6 @@ class SpecieMove < ActiveRecord::Base
     :numericality => {
       :greater_than_or_equal_to => 0
     }
+
+  delegate :name, to: :move
 end

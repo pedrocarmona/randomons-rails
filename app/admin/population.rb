@@ -7,7 +7,7 @@ ActiveAdmin.register Population do
     default_actions
   end
 
-  filter :specie_id
+  filter :specie
 
   form do |f|
     f.inputs 'Population Details' do
@@ -21,7 +21,7 @@ ActiveAdmin.register Population do
 
   show do
     attributes_table do
-      row :specie_id
+      row :specie
       row :latitude
       row :longitude
       row :radius
