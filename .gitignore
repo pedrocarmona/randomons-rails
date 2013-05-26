@@ -22,3 +22,6 @@ doc/
 .DS_Store
 bundler_stubs/
 capybara*.html 
+
+#mac os text editor
+.tm_properties
