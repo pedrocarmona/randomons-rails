@@ -1,6 +1,9 @@
 class Creature < ActiveRecord::Base
   include Status
 
+  belongs_to :specie
+  belongs_to :user
+
   attr_accessible :specie_id, :name, :hitpoints, :attack, :defense, :speed,
     :growth, :level, :current_hitpoints, :current_experience, :status, :preference, :user_id
 
@@ -13,5 +16,4 @@ class Creature < ActiveRecord::Base
       :greater_than_or_equal_to => 0,
       :less_than_or_equal_to => :hitpoints
     }
-  belongs_to :user
 end
