@@ -23,6 +23,12 @@ ActiveAdmin.register Specie do
       f.input :specie_types, :as => :serialized_array, :collection => Type.list, :wrapper_html => { :class => 'check_boxes' }
       f.input :experience_function, :as => :select, :collection => ExperienceFunction.list, :include_blank => false
       f.input :description
+      f.has_many :specie_moves do |g|
+        g.inputs 'Species Moves' do
+          g.input :move_id, :as => :select, :collection => Move.all, :include_blank => false
+          g.input :level
+        end
+      end
     end
     f.actions
   end

@@ -1,6 +1,9 @@
 class Move < ActiveRecord::Base
   include Type, Status
 
+  has_many :specie_moves, :dependent => :destroy
+  has_many :species, :through => :specie_moves
+
   attr_accessible :name, :move_types, :attack, :accuracy, :status, :status_probability, :description
 
   validates :name, :presence => true

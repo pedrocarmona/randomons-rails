@@ -1,8 +1,15 @@
 class Specie < ActiveRecord::Base
   include Type
 
+  has_many :specie_moves, :dependent => :destroy
+  has_many :moves, :through => :specie_moves
+
   attr_accessible :name, :base_hitpoints, :base_attack, :base_defense, :base_speed,
     :specie_types, :experience_function, :description
+
+  accepts_nested_attributes_for :specie_moves,
+    :allow_destroy => true,
+    :reject_if => lambda { |a| a[:move_id].blank? }
 
   validates :name, :presence => true
   validates :base_hitpoints, :base_attack, :base_defense, :base_speed,
