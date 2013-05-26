@@ -1,3 +1,3 @@
 collection @creatures
 
-extends "creatures/show"
+extends "api/v1/creatures/show"
