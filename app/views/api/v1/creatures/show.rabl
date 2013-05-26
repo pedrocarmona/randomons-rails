@@ -4,3 +4,4 @@ attributes :id , :name, :hitpoints, :attack, :defense, :speed,
 child :specie
     extends "specie/show"
 end
+

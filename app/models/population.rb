@@ -4,5 +4,7 @@ class Population < ActiveRecord::Base
   validates :specie_id, :latitude, :longitude, :radius,
     :presence => true
 
+  belongs_to :specie
+
   reverse_geocoded_by :latitude, :longitude
 end

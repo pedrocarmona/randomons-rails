@@ -17,7 +17,8 @@ Randomons::Application.routes.draw do
       end
       get 'tasks' => 'tasks#index', :as => 'tasks'
 
-      resources :species, :populations, :moves, :only => [:show, :index]
+      resources :species, :populations, :moves, :only => [:index, :show]
+      resources :creatures, :only => [:index, :show, :create, :update, :destroy]
     end
   end
 end
