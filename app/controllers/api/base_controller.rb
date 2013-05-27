@@ -1,5 +1,7 @@
 class Api::BaseController < ApplicationController
-  before_filter :set_default_format_and_content_type, :use_dummy_session, :authenticate_user!
+  before_filter :set_default_format_and_content_type,
+   #:use_dummy_session, 
+   :authenticate_user!
 
   respond_to :json
 
