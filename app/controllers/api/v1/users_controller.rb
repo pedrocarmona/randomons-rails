@@ -1,7 +1,7 @@
 class Api::V1::UsersController < Api::BaseController
   def index
     @users = User.order('name ASC')
-    respond_with(@user)
+    respond_with(@users)
   end
 
   def show
