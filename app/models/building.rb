@@ -14,4 +14,13 @@ class Building < ActiveRecord::Base
     :presence => true
 
   reverse_geocoded_by :latitude, :longitude
+
+  def self.find_by_location(lat, lng)
+    if lat && lng
+      scope = near([lat, lng], 10, :units => :km)
+    else
+      scope = scoped
+    end
+    scope.order('name ASC')
+  end
 end
