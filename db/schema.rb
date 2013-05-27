@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526205624) do
+ActiveRecord::Schema.define(:version => 20130527000001) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,26 @@ ActiveRecord::Schema.define(:version => 20130526205624) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "building_items", :force => true do |t|
+    t.integer  "building_id",                :null => false
+    t.integer  "item_id",                    :null => false
+    t.integer  "price",       :default => 0, :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "building_items", ["building_id"], :name => "index_building_items_on_building_id"
+  add_index "building_items", ["item_id"], :name => "index_building_items_on_item_id"
+
+  create_table "buildings", :force => true do |t|
+    t.string   "name",       :null => false
+    t.float    "latitude",   :null => false
+    t.float    "longitude",  :null => false
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "creatures", :force => true do |t|
     t.integer  "specie_id",                           :null => false
     t.string   "name",                                :null => false
@@ -66,10 +86,9 @@ ActiveRecord::Schema.define(:version => 20130526205624) do
 
   create_table "items", :force => true do |t|
     t.integer  "specie_id"
-    t.string   "name",                      :null => false
-    t.integer  "price",      :default => 0, :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "items", ["specie_id"], :name => "index_items_on_specie_id"

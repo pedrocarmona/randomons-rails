@@ -1,14 +1,11 @@
 class Item < ActiveRecord::Base
   belongs_to :specie
+  has_many :user_items, :dependent => :destroy
+  has_many :users, :through => :user_items
+  has_many :building_items, :dependent => :destroy
+  has_many :buildings, :through => :building_items
 
-  attr_accessible :specie_id, :name, :price
+  attr_accessible :specie_id, :name
 
   validates :name, :presence => true
-  validates :price,
-    :presence => true,
-    :numericality => {
-      :greater_than_or_equal_to => 0
-    }
-
-  reverse_geocoded_by :name, :price
 end
