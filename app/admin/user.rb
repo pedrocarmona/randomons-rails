@@ -46,22 +46,14 @@ ActiveAdmin.register User do
           div :class => "attributes_table" do
             table do
               tr do
-                th do
-                  "Name"
-                end
-                th do
-                  "Quantity"
-                end
+                th "Name"
+                th "Quantity"
               end
               tbody do
                 user.user_items.each do |user_item|
                   tr do
-                    td do
-                      user_item.name
-                    end
-                    td do
-                      user_item.quantity
-                    end
+                    td user_item.name
+                    td user_item.quantity
                   end
                 end
               end
