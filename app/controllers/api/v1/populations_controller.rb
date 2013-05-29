@@ -1,6 +1,6 @@
 class Api::V1::PopulationsController < Api::BaseController
   def index
-    @populations = Population.all
+    @populations = Population.find_by_location(params[:lat], params[:lng])
     respond_with(@populations)
   end
 
