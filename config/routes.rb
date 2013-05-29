@@ -15,7 +15,6 @@ Randomons::Application.routes.draw do
         post 'sessions' => 'sessions#create', :as => 'login'
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
-      get 'tasks' => 'tasks#index', :as => 'tasks'
 
       resources :species, :populations, :moves, :medical_centers, :shops, :only => [:index, :show]
       resources :creatures, :only => [:index, :show, :create, :update, :destroy]
