@@ -17,10 +17,9 @@ class Building < ActiveRecord::Base
 
   def self.find_by_location(lat, lng)
     if lat && lng
-      scope = near([lat, lng], 10, :units => :km)
+      near([lat, lng], 0.01, :units => :km).order('name ASC')
     else
-      scope = scoped
+      []
     end
-    scope.order('name ASC')
   end
 end

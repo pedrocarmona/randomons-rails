@@ -16,6 +16,7 @@ Randomons::Application.routes.draw do
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
 
+      resources :events, :only => :index
       resources :species, :populations, :moves, :medical_centers, :shops, :only => [:index, :show]
       resources :creatures, :only => [:index, :show, :create, :update, :destroy]
     end
