@@ -22,7 +22,7 @@ class Move < ActiveRecord::Base
   serialize :move_types, Array
 
   def move_types=(values)
-    write_attribute(:move_types, values.delete_if { |v| v == '' }.map(&:to_i))
+    write_attribute(:move_types, Array(values).delete_if { |v| v == '' }.map(&:to_i))
   end
 
   def move_types_names

@@ -23,7 +23,7 @@ class Specie < ActiveRecord::Base
   serialize :specie_types, Array
 
   def specie_types=(values)
-    write_attribute(:specie_types, values.delete_if { |v| v == '' }.map(&:to_i))
+    write_attribute(:specie_types, Array(values).delete_if { |v| v == '' }.map(&:to_i))
   end
 
   def specie_types_names
