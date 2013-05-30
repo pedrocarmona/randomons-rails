@@ -2,7 +2,6 @@ ActiveAdmin.register Item do
   index do
     column :specie
     column :name
-    column :description
     default_actions
   end
 

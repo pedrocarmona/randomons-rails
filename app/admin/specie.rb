@@ -7,7 +7,6 @@ ActiveAdmin.register Specie do
     column :base_defense
     column :base_speed
     column :experience_function
-    column :description
     default_actions
   end
 

@@ -6,7 +6,6 @@ ActiveAdmin.register Move do
     column :accuracy
     column 'Status', :status_name
     column :status_probability
-    column :description
     default_actions
   end
 

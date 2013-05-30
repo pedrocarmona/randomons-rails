@@ -9,6 +9,8 @@ ActiveAdmin.register Building do
 
   filter :type, :as => :select, :collection => Building::TYPES
   filter :name
+  filter :latitude
+  filter :longitude
 
   form do |f|
     f.inputs 'Building Details' do
