@@ -1,5 +1,8 @@
 ActiveAdmin.register User do
   index do
+    column :avatar do |user|
+      image_tag(user.avatar(:thumb))
+    end
     column :name
     column :email
     column :current_sign_in_at
@@ -41,6 +44,9 @@ ActiveAdmin.register User do
       row :last_sign_in_at
       row :sign_in_count
       row :about
+      row :avatar do
+        image_tag(user.avatar(:thumb))
+      end
     end
     div :class => "panel" do
       h3 "Creatures"
@@ -55,7 +61,7 @@ ActiveAdmin.register User do
               tbody do
                 user.creatures.each do |creature|
                   tr do
-                    td creature.specie
+                    td creature.specie_name
                     td creature.name
                   end
                 end

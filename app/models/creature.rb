@@ -17,4 +17,5 @@ class Creature < ActiveRecord::Base
       :less_than_or_equal_to => :hitpoints
     }
 
+  delegate :name, :to => :specie, :prefix => true
 end
