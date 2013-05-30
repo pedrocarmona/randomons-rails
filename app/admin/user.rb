@@ -42,8 +42,33 @@ ActiveAdmin.register User do
       row :about
     end
     div :class => "panel" do
+      h3 "Creatures"
+      if user.creatures.any?
+        div :class => "panel_contents" do
+          div :class => "attributes_table" do
+            table do
+              tr do
+                th "Name"
+                th "Quantity"
+              end
+              tbody do
+                user.creatures.each do |creature|
+                  tr do
+                    td creature.name
+                    td creature.quantity
+                  end
+                end
+              end
+            end
+          end
+        end
+      else
+        h3 "This user has no creatures"
+      end
+    end
+    div :class => "panel" do
       h3 "Items"
-      if user.user_items
+      if user.user_items.any?
         div :class => "panel_contents" do
           div :class => "attributes_table" do
             table do

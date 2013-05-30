@@ -10,6 +10,10 @@ MedicalCenter.create([
   { :name => 'Hospitais Da Universidade De Coimbra', :latitude => 40.220727, :longitude => -8.412680 }
 ])
 
+Shop.create([
+  { :name => 'Bar do DEI', :latitude => 40.186631, :longitude => -8.416126 }
+])
+
 Specie.create([
   { :name => 'Canibalape',
     :base_hitpoints => 100,
