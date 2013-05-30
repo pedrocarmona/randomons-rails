@@ -20,6 +20,7 @@ ActiveAdmin.register User do
         f.input :password_confirmation
       end
       f.input :about
+      f.input :avatar, :as => :file, :hint => f.template.image_tag(f.object.avatar.url(:medium))
       f.has_many :user_items do |g|
         g.inputs "Items" do
           g.input :item_id, :as => :select, :collection => Item.all, :include_blank => false
@@ -42,8 +43,33 @@ ActiveAdmin.register User do
       row :about
     end
     div :class => "panel" do
+      h3 "Creatures"
+      if user.creatures.any?
+        div :class => "panel_contents" do
+          div :class => "attributes_table" do
+            table do
+              tr do
+                th "Name"
+                th "Quantity"
+              end
+              tbody do
+                user.creatures.each do |creature|
+                  tr do
+                    td creature.name
+                    td creature.quantity
+                  end
+                end
+              end
+            end
+          end
+        end
+      else
+        h3 "This user has no creatures"
+      end
+    end
+    div :class => "panel" do
       h3 "Items"
-      if user.user_items
+      if user.user_items.any?
         div :class => "panel_contents" do
           div :class => "attributes_table" do
             table do

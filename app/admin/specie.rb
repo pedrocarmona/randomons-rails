@@ -47,7 +47,7 @@ ActiveAdmin.register Specie do
     end
     div :class => "panel" do
       h3 "Moves"
-      if specie.specie_moves
+      if specie.specie_moves.any?
         div :class => "panel_contents" do
           div :class => "attributes_table" do
             table do

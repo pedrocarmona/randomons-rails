@@ -36,7 +36,7 @@ ActiveAdmin.register Building do
     end
     div :class => "panel" do
       h3 "Items"
-      if building.building_items
+      if building.building_items.any?
         div :class => "panel_contents" do
           div :class => "attributes_table" do
             table do

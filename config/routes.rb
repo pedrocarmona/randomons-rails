@@ -7,8 +7,7 @@ Randomons::Application.routes.draw do
 
   devise_for :users
   ActiveAdmin.routes(self)
-  
-  
+
   namespace :api, constraints: { format: /json/ } do
     namespace :v1 do
       devise_scope :user do
