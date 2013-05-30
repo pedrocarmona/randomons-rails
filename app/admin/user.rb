@@ -20,6 +20,7 @@ ActiveAdmin.register User do
         f.input :password_confirmation
       end
       f.input :about
+      f.input :avatar, :as => :file, :hint => f.template.image_tag(f.object.avatar.url(:medium))
       f.has_many :user_items do |g|
         g.inputs "Items" do
           g.input :item_id, :as => :select, :collection => Item.all, :include_blank => false
