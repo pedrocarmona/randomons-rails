@@ -9,3 +9,8 @@ end
 child :creatures do
   extends "api/v1/creatures/index"
 end
+
+child :items do
+	print "\n\n\nola\n\n\n"
+	extends "api/v1/items/index"
+end
