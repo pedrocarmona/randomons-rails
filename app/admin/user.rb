@@ -49,14 +49,14 @@ ActiveAdmin.register User do
           div :class => "attributes_table" do
             table do
               tr do
+                th "Specie"
                 th "Name"
-                th "Quantity"
               end
               tbody do
                 user.creatures.each do |creature|
                   tr do
+                    td creature.specie
                     td creature.name
-                    td creature.quantity
                   end
                 end
               end
