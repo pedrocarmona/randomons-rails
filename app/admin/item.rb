@@ -2,6 +2,7 @@ ActiveAdmin.register Item do
   index do
     column :specie
     column :name
+    column :description
     default_actions
   end
 
@@ -12,6 +13,7 @@ ActiveAdmin.register Item do
     f.inputs 'Item Details' do
       f.input :specie_id, :as => :select, :collection => Specie.all
       f.input :name
+      f.input :description
     end
     f.actions
   end
@@ -20,6 +22,7 @@ ActiveAdmin.register Item do
     attributes_table do
       row :specie
       row :name
+      row :description
     end
     active_admin_comments
   end

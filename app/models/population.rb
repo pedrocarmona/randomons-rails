@@ -1,7 +1,7 @@
 class Population < ActiveRecord::Base
   belongs_to :specie
 
-  attr_accessible :specie_id, :latitude, :longitude, :radius
+  attr_accessible :specie_id, :latitude, :longitude, :radius, :hidden
 
   validates :specie_id, :latitude, :longitude, :radius,
     :presence => true

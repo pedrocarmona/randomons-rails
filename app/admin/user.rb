@@ -19,6 +19,7 @@ ActiveAdmin.register User do
         f.input :password
         f.input :password_confirmation
       end
+      f.input :about
       f.has_many :user_items do |g|
         g.inputs "Items" do
           g.input :item_id, :as => :select, :collection => Item.all, :include_blank => false
@@ -38,6 +39,7 @@ ActiveAdmin.register User do
       row :current_sign_in_at
       row :last_sign_in_at
       row :sign_in_count
+      row :about
     end
     div :class => "panel" do
       h3 "Items"

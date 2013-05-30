@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   has_many :user_items, :dependent => :destroy
   has_many :items, :through => :user_items
 
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :user_items_attributes
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
+    :about, :user_items_attributes
 
   accepts_nested_attributes_for :user_items,
     :allow_destroy => true,

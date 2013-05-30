@@ -4,10 +4,15 @@ ActiveAdmin.register Population do
     column :latitude
     column :longitude
     column :radius
+    column :hidden
     default_actions
   end
 
   filter :specie
+  filter :latitude
+  filter :longitude
+  filter :radius
+  filter :hidden
 
   form do |f|
     f.inputs 'Population Details' do
@@ -15,6 +20,7 @@ ActiveAdmin.register Population do
       f.input :latitude
       f.input :longitude
       f.input :radius
+      f.input :hidden
     end
     f.actions
   end
@@ -25,6 +31,7 @@ ActiveAdmin.register Population do
       row :latitude
       row :longitude
       row :radius
+      row :hidden
     end
     active_admin_comments
   end

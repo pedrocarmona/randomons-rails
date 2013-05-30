@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   has_many :building_items, :dependent => :destroy
   has_many :buildings, :through => :building_items
 
-  attr_accessible :specie_id, :name
+  attr_accessible :specie_id, :name, :description
 
   validates :name, :presence => true
 end
