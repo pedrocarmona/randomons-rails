@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable
 
-  has_many :creatures
+  has_many :creatures, :dependent => :destroy
   has_many :user_items, :dependent => :destroy
   has_many :items, :through => :user_items
 

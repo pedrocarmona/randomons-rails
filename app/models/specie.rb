@@ -3,6 +3,8 @@ class Specie < ActiveRecord::Base
 
   has_many :specie_moves, :dependent => :destroy
   has_many :moves, :through => :specie_moves
+  has_many :populations, :dependent => :destroy
+  has_many :creatures, :dependent => :destroy
 
   attr_accessible :name, :base_hitpoints, :base_attack, :base_defense, :base_speed,
     :specie_types, :experience_function, :description, :specie_moves_attributes
