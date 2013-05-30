@@ -12,5 +12,5 @@ class UserItem < ActiveRecord::Base
       :greater_than_or_equal_to => 0
     }
 
-  delegate :name, to: :item
+  delegate :name, :to => :item
 end

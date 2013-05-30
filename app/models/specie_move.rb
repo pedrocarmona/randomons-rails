@@ -13,5 +13,5 @@ class SpecieMove < ActiveRecord::Base
       :greater_than_or_equal_to => 0
     }
 
-  delegate :name, to: :move
+  delegate :name, :to => :move
 end
