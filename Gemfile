@@ -15,7 +15,7 @@ gem 'paperclip', '~> 3.4.2'
 gem 'aws-sdk', '~> 1.11.0'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.7'
 end
 
 group :development do
@@ -24,7 +24,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.12.2'
+  gem 'pg', '~> 0.15.1'
   gem 'newrelic_rpm', '~> 3.6.2.96'
 end
 
