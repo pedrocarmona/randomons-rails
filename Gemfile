@@ -8,13 +8,13 @@ gem 'rails', '~> 3.2.13'
 gem 'devise', '~> 2.2.4'
 gem 'activeadmin', '~> 0.6.0'
 gem 'meta_search', '~> 1.1.3'
-gem 'thin', '~> 1.5.0'
 gem 'geocoder', '~> 1.1.8'
 gem 'rabl', '~> 0.8.5'
 gem 'paperclip', '~> 3.4.2'
 gem 'aws-sdk', '~> 1.11.0'
 
 group :development, :test do
+  gem 'thin', '~> 1.5.0'
   gem 'sqlite3', '~> 1.3.7'
 end
 
@@ -24,6 +24,7 @@ group :development do
 end
 
 group :production do
+  gem 'puma', '~> 2.0.1'
   gem 'pg', '~> 0.15.1'
   gem 'newrelic_rpm', '~> 3.6.2.96'
 end
